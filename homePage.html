@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+      .image-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container img {
+    height: 330px;
+    width: 250px;
+    animation: moveUp 10s linear infinite;
+    margin-bottom: 25px;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+
+.imageSecondCont {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.imageSecondCont img {
+    height: 330px;
+    width: 250px;
+    animation: moveDown 10s linear infinite;
+    margin-bottom: 25px;
+}
+
+@keyframes moveDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <nav class = "navbar bg-white">
+        <div class="container">
+            <div class = "navbar-content">
+                <div class = "brand-and-toggler">
+                    <a href = "index.html" class = "navbar-brand">
+                        <img src = "/images/curriculum-vitae.png" alt = "" class = "navbar-brand-icon">
+                        <span class = "navbar-brand-text">build <span>resume.</span>
+                    </a>
+                    <button type = "button" class = "navbar-toggler-btn">
+                      
+                            <a href = "ex.html" class = "btn btn-primary text-uppercase">Login | SignUp</a>
+                      
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class = "header bg-bright" id = "header" style="display: flex; flex-direction: row; justify-content: space-between;">
+        
+            <div class = "header-content text-center" style="width: 38%;">
+                <h1 class = "lg-title" style="font-size: 48px;">The Ultimate Resume Builder</h1>
+                <p class = "text-dark fs-18">Build beautiful, recruiter-tested resumes in a few clicks! Our resume builder is powerful and easy to use, with a range of amazing functions. Custom-tailor resumes for any job within minutes. Increase your interview chances and rise above the competition.
+                </p>
+                <a href = "#" class = "btn btn-primary text-uppercase" onclick="alert('Please login or sign up to create your resume.')">create my resume</a>
+            </div>
+
+            <div style=" width: 40%; height: 600px; display: flex; justify-content: space-around; overflow-y: hidden; margin-right: 109px; padding: 20px;">
+                <div style="display: flex; justify-content: space-around; flex-direction: column;" class="image-container">
+                    <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/488/persistent-resource/dublin-resume-templates.jpg">
+
+                <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/406/persistent-resource/vienna-resume-templates.jpg">
+
+                <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/441/persistent-resource/sydney-resume-templates.jpg">
+
+                <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/383/persistent-resource/santiago-resume-templates.jpg">
+
+                <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/370/persistent-resource/stockholm-resume-templates.jpg">
+
+                <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/389/persistent-resource/new-york-resume-templates.jpg">
+                </div>
+
+                <div style="display: flex; justify-content: space-around; flex-direction: column;"  class="imageSecondCont">
+                    
+                    <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/488/persistent-resource/dublin-resume-templates.jpg">
+
+                    <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/406/persistent-resource/vienna-resume-templates.jpg">
+    
+                    <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/441/persistent-resource/sydney-resume-templates.jpg">
+    
+                    <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/383/persistent-resource/santiago-resume-templates.jpg">
+    
+                    <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/370/persistent-resource/stockholm-resume-templates.jpg" style="height: 280px; width: 250px;">
+    
+                    <img src = "https://s3.resume.io/cdn-cgi/image/width=384,format=auto/uploads/local_template_image/image/389/persistent-resource/new-york-resume-templates.jpg" style="height: 280px; width: 250px;">
+                </div>
+                
+            </div>
+        
+    </header>
+
+
+    <div class="secondSec" style="display: flex; height: 400px;">
+        <img src="https://resume.io/assets/landing/builder/promo/resume/visual-6074098d8e832e57ead0cb6f735d68ebdabf9790b82bf957fc812d382d3d0fbe.svg" alt="">
+        <div class="info" style="width: 52%; padding: 40px; text-align: left; margin-right: 100px;">
+            <h1>Create a resume to land your next job</h1>
+            <p style="margin-top: 18px;">We have developed a resume builder based on feedback from thousands of users, recruiter expertise, stellar template design and the best hiring practices. The goal is simple: help you land that dream job interview! Get an advantage in the modern professional environment.</p>
+        </div>
+    </div>
+
+
+    <div class = "section-two bg-bright" style="background-color: white;">
+        <div class="container">
+            <div class="section-two-content">
+                <div class = "section-items">
+                    <div class = "section-item">
+                        <div class = "section-item-icon">
+                            <img src = "https://resume.io/assets/landing/builder/promo/feature-1-b2dbdf1ef038e441bf980b0d97b032b04545efb59d8311bce0f82c5cd9fb647a.svg" alt = "">
+                        </div>
+                        <h5 class = "section-item-title">Powerful and easy-to-use</h5>
+                        <p class = "text">Created to be suitable for all levels of job seekers. Our host of powerful features ranges from an excellent spell-checker, to job tracking, multi-format export, auto-generated summaries and more.</p>
+                    </div>
+
+                    <div class = "section-item">
+                        <div class = "section-item-icon">
+                            <img src = "https://resume.io/assets/landing/builder/promo/feature-2-80e5042b30b3dd897cee8cd92db60ccea7c815f752f84c225bdf2b3394b27aaa.svg" alt = "">
+                        </div>
+                        <h5 class = "section-item-title">Customization made simple</h5>
+                        <p class = "text">Fine-tune your resume for a specific job with ease. We help you turn a generic document into a cutting-edge instrument that wins interviews. Transform universal resumes into perfect sales pitches with a few key-strokes.</p>
+                    </div>
+
+                    <div class = "section-item">
+                        <div class = "section-item-icon">
+                            <img src = "https://resume.io/assets/landing/builder/promo/feature-3-fcb05c59471feb05122549afb900acd7caa8c3091d88ba27383701cb680456f9.svg" alt = "">
+                        </div>
+                        <h5 class = "section-item-title">Templates designed by experts
+                        </h5>
+                        <p class = "text">Our designed templates and examples are reviewed by recruiters. This gives you a powerful boost in resume creation, straight from the other side of the job market - the people responsible for hiring and candidate evaluation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class = "footer bg-dark">
+        <div class="container">
+            <div class = "footer-content text-center">
+                <p class="fs-15">&copy;Copyright 2022. All Rights Reserved - <span>build.resume</span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

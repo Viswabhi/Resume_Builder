@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Gemini Clone</title>
+   <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+
+ </head>
+ <body>
+ <main>
+   <div class="msg-container">
+     <div class="user-msg"></div>
+     <div class="bot-msg"></div>
+   </div>
+ 
+   <div class="user-input-div">
+     <input type="text" placeholder="chat with our bot" class="user-input" style="display: none;" />
+     <!-- <button class="btn">Search with Gemini</button> -->
+   </div>
+ </main>
+ <script type="importmap">
+   {
+     "imports": {
+       "@google/generative-ai": "https://esm.run/@google/generative-ai"
+     }
+   }
+ </script>
+ 
+ <script type="module">
+   import { GoogleGenerativeAI } from "@google/generative-ai";
+ 
+   const API_KEY = 'AIzaSyAoIPMZjYsOqI2NBcWsIiT8MMejxAYb-Q4';
+ 
+   const genAI = new GoogleGenerativeAI(API_KEY);
+ 
+   async function run() {
+     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+ 
+     let userInput = document.querySelector('.user-input').value;
+ 
+     const userData = JSON.parse(localStorage.getItem('userData'));
+     const data = {
+       achievements: userData.achievements.map(achievement => {
+         const { achieve_title, achieve_description } = achievement;
+         return { achieve_title, achieve_description };
+       }),
+       educations: userData.educations.map(education => {
+         const { edu_city, edu_degree, edu_description, edu_graduation_date, edu_school, edu_start_date } = education;
+         return { edu_city, edu_degree, edu_description, edu_graduation_date, edu_school, edu_start_date };
+       }),
+       projects: userData.projects.map(project => {
+         const { proj_description, proj_title } = project;
+         return { proj_description, proj_title };
+       }),
+       skills: userData.skills.map(skill => {
+         const { skill_name } = skill;
+         return { skill_name };
+       }),
+       experiences: userData.experiences.map(experience => {
+         const { exp_description, exp_title, exp_start_date, exp_end_date, exp_organization, exp_location } = experience;
+         return { exp_description, exp_title, exp_start_date, exp_end_date, exp_organization, exp_location };
+       })
+     };
+ 
+     let userInputData = "";
+     Object.keys(data).forEach(dataType => {
+       userInputData += data[dataType].map(item => Object.values(item).join(' ')).join(' ');
+     });
+ 
+     userInput += `\nI want job suggestions based on\n${userInputData}`;
+ 
+     let userMessageDisplayDiv = document.createElement('div');
+     userMessageDisplayDiv.className = 'user-msg';
+     userMessageDisplayDiv.textContent = `${userInput}`;
+    //  document.querySelector('.msg-container').appendChild(userMessageDisplayDiv);
+ 
+     const prompt = userInput;
+     const result = await model.generateContent(prompt);
+     const response = await result.response;
+     let text = await response.text();
+ 
+     const md = window.markdownit();
+     const html = md.render(text);
+ 
+     let botMessageDiv = document.createElement('div');
+     botMessageDiv.className = 'bot-msg';
+     botMessageDiv.innerHTML = html;
+     document.querySelector('.msg-container').appendChild(botMessageDiv);
+   }
+ 
+   run();
+ </script>
+ </body>
+ </html>
+ 
+
+
+
+ 
+ 
